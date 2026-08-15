@@ -1,13 +1,13 @@
 /* ========== MAIN STYLESHEET - Imports all modular CSS ========== */
 
 /* Core: variables, reset, base, toast, footer, floating buttons, cart, modal */
-@import 'general.css';
+@import 'general.css?v=1.00';
 
 /* Navigation */
-@import 'navbar.css';
+@import 'navbar.css?v=1.00';
 
 /* Hero, search, filters */
-@import 'search.css';
+@import 'search.css?v=1.00';
 
 /* Catalogue, business section, contact page */
-@import 'catalog.css';
+@import 'catalog.css?v=1.00';
