@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue Complet • ElectroShop</title>
+    <!-- Font Awesome 6 (icônes vectorielles) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR RESPONSIVE ==================== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span> ElectroShop
+            </a>
+
+            <!-- Bouton hamburger pour mobile -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
+                <li><a href="catalogue.html" class="active"><i class="fa-solid fa-box-open"></i> Catalogue</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" id="btnOpenCart" aria-label="Panier">
+                    <i class="fa-solid fa-cart-shopping"></i> Panier
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== CATALOGUE HEADER ==================== -->
+    <!-- <section class="catalogue-header">
+        <div class="catalogue-header-inner">
+            <h1>Catalogue Complet</h1>
+            <p>Tous nos produits électroniques disponibles</p>
+        </div>
+    </section> -->
+
+    <!-- ==================== FILTRES ==================== -->
+    <div class="filters-bar" id="filtersBar">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-box"></i> Tout</button>
+        <button class="filter-btn" data-filter="telephone"><i class="fa-solid fa-mobile-screen-button"></i> Téléphones</button>
+        <button class="filter-btn" data-filter="audio"><i class="fa-solid fa-headphones"></i> Audio</button>
+        <button class="filter-btn" data-filter="tablette"><i class="fa-solid fa-tablet-screen-button"></i> Tablettes</button>
+        <button class="filter-btn" data-filter="accessoire"><i class="fa-solid fa-plug"></i> Accessoires</button>
+        <span class="results-count" id="resultsCount"></span>
+    </div>
+
+    <!-- ==================== RECHERCHE ==================== -->
+    <div class="search-bar">
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+            <button id="btnSearch" aria-label="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+
+    <!-- ==================== CATALOGUE ==================== -->
+    <section class="catalogue" id="catalogue"></section>
+
+    <!-- ==================== PANIER ==================== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Votre Panier</h3>
+            <button class="btn-close-cart" id="btnCloseCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Votre panier est vide.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total :</span>
+                <span id="cartTotal">0,00 €</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-checkout" id="btnCheckout"><i class="fa-solid fa-lock"></i> Passer la commande</button>
+                <a class="btn-checkout-whatsapp" id="btnCheckoutWhatsApp" href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i> Commander sur WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ==================== PRODUCT DETAIL MODAL ==================== -->
+    <div class="product-modal-overlay" id="productModalOverlay">
+        <div class="product-modal" id="productModal">
+            <button class="btn-close-modal" id="btnCloseModal" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="product-modal-body" id="productModalBody"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroShop — Tous droits réservés. Paiement sécurisé.</p>
+    </footer>
+
+    <!-- Floating cart button (mobile) -->
+    <button class="floating-cart-btn" id="floatingCartBtn" aria-label="Panier">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count" id="floatingCartCount">0</span>
+    </button>
+
+    <!-- Floating WhatsApp button -->
+    <a href="https://wa.me/221781923146" class="floating-whatsapp-btn" id="floatingWhatsAppBtn" aria-label="Nous contacter sur WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

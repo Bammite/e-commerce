@@ -1,0 +1,194 @@
+/* ========== NAVBAR (responsive) ========== */
+.navbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--black);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+/* Navigation desktop */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
+    padding: 4px 0;
+}
+
+.nav-links a:hover {
+    color: var(--black);
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--black);
+    transition: var(--transition);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-btn {
+    background: none;
+    border: 2px solid var(--black);
+    cursor: pointer;
+    color: var(--black);
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.icon-btn i {
+    font-size: 1rem;
+}
+
+.icon-btn:hover {
+    background: var(--black);
+    color: #fff;
+}
+
+.cart-count {
+    background: var(--black);
+    color: #fff;
+    font-size: 0.7rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    transition: var(--transition);
+}
+.icon-btn:hover .cart-count {
+    background: #fff;
+    color: var(--black);
+}
+
+/* Bouton hamburger (mobile) */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: 2px solid var(--black);
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: var(--black);
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.mobile-menu-btn:hover {
+    background: var(--black);
+    color: #fff;
+}
+
+/* ========== NAVBAR ACTIVE LINK ========== */
+.nav-links a.active {
+    color: var(--black);
+}
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* ========== RESPONSIVE NAVBAR ========== */
+@media (max-width: 768px) {
+    .navbar { padding: 0 1rem; }
+    .mobile-menu-btn { display: flex; }
+
+    /* Cacher le bouton panier dans la navbar sur petits écrans */
+    .nav-icons { display: none; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border);
+        padding: 0.5rem 0;
+    }
+
+    .nav-links.show { display: flex; }
+
+    .nav-links li { width: 100%; }
+    .nav-links a {
+        display: block;
+        padding: 14px 2rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 1rem;
+    }
+    .nav-links a::after { display: none; }
+}

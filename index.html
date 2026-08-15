@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroShop • Électronique & Gadgets</title>
+    <!-- Font Awesome 6 (icônes vectorielles) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR RESPONSIVE ==================== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span> ElectroShop
+            </a>
+
+            <!-- Bouton hamburger pour mobile -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Accueil</a></li>
+                <li><a href="catalogue.html"><i class="fa-solid fa-box-open"></i> Catalogue</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" id="btnOpenCart" aria-label="Panier">
+                    <i class="fa-solid fa-cart-shopping"></i> Panier
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-inner">
+            <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> Nouveautés 2026</span>
+            <h1>Découvrez notre catalogue électronique</h1>
+            <p>Téléphones, casques, tablettes et bien plus — livraison rapide</p>
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+                <button id="btnSearch" aria-label="Rechercher"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FILTRES ==================== -->
+    <div class="filters-bar" id="filtersBar">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-box"></i> Tout</button>
+        <button class="filter-btn" data-filter="telephone"><i class="fa-solid fa-mobile-screen-button"></i> Téléphones</button>
+        <button class="filter-btn" data-filter="audio"><i class="fa-solid fa-headphones"></i> Audio</button>
+        <button class="filter-btn" data-filter="tablette"><i class="fa-solid fa-tablet-screen-button"></i> Tablettes</button>
+        <button class="filter-btn" data-filter="accessoire"><i class="fa-solid fa-plug"></i> Accessoires</button>
+        <span class="results-count" id="resultsCount"></span>
+    </div>
+
+    <!-- ==================== CATALOGUE ==================== -->
+    <section class="catalogue" id="catalogue"></section>
+
+    <!-- ==================== ENTREPRISES ==================== -->
+    <section class="business-section" id="businessSection" aria-labelledby="businessTitle">
+        <div class="business-overlay"></div>
+        <div class="business-content">
+            <span class="business-badge"><i class="fa-solid fa-building"></i> Solutions Professionnelles</span>
+            <h2 id="businessTitle">Équipez vos locaux avec du matériel de qualité</h2>
+            <p>Mobilier, informatique, audiovisuel, réseau — solutions sur mesure pour entreprises, bureaux et espaces de coworking. Livraison et installation incluses.</p>
+            <button type="button" class="btn-business-cta" id="btnOpenDevis"><i class="fa-solid fa-arrow-right"></i> Demander un devis</button>
+        </div>
+    </section>
+
+    <!-- ==================== AVIS CLIENTS ==================== -->
+    <section class="testimonials-section" id="testimonialsSection" aria-labelledby="testimonialsTitle">
+        <div class="testimonials-header">
+            <span class="testimonials-badge"><i class="fa-solid fa-star"></i> Avis Clients</span>
+            <h2 id="testimonialsTitle">Ce que disent nos clients</h2>
+            <p>Des milliers de clients satisfaits nous font confiance au quotidien</p>
+        </div>
+        <div class="testimonials-carousel" id="testimonialsCarousel" role="region" aria-label="Carousel d'avis clients">
+            <div class="testimonials-track" id="testimonialsTrack">
+                <!-- Les avis seront injectés par JavaScript -->
+            </div>
+            <button class="testimonials-nav testimonials-prev" id="testimonialsPrev" aria-label="Avis précédent"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="testimonials-nav testimonials-next" id="testimonialsNext" aria-label="Avis suivant"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="testimonials-dots" id="testimonialsDots" aria-label="Navigation des avis"></div>
+    </section>
+
+    <!-- ==================== PANIER ==================== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Votre Panier</h3>
+            <button class="btn-close-cart" id="btnCloseCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Votre panier est vide.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total :</span>
+                <span id="cartTotal">0,00 €</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-checkout" id="btnCheckout"><i class="fa-solid fa-lock"></i> Passer la commande</button>
+                <a class="btn-checkout-whatsapp" id="btnCheckoutWhatsApp" href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i> Commander sur WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ==================== MODAL DEMANDE DEVIS ==================== -->
+    <div class="devis-modal-overlay" id="devisModalOverlay">
+        <div class="devis-modal">
+            <button class="btn-close-devis" id="btnCloseDevis" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="devis-modal-content">
+                <div class="devis-modal-header">
+                    <div class="devis-modal-icon">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                    <h2>Demande de devis</h2>
+                    <p>Remplissez le formulaire ci-dessous et nous vous recontacterons dans les plus brefs délais.</p>
+                </div>
+                <form class="devis-form" id="devisForm">
+                    <div class="devis-form-group">
+                        <label for="devisName"><i class="fa-solid fa-user"></i> Nom complet <span class="required">*</span></label>
+                        <input type="text" id="devisName" name="name" placeholder="Votre nom et prénom" required>
+                    </div>
+                    <div class="devis-form-group">
+                        <label for="devisNeed"><i class="fa-solid fa-tag"></i> Type de besoin <span class="required">*</span></label>
+                        <select id="devisNeed" name="need" required>
+                            <option value="" disabled selected>Choisir un type de besoin</option>
+                            <option value="entreprise">Entreprise</option>
+                            <option value="personnel">Besoin personnel</option>
+                            <option value="vente">Vente</option>
+                            <option value="educatif">Éducatif</option>
+                            <option value="autre">Autre (à préciser)</option>
+                        </select>
+                    </div>
+                    <div class="devis-form-group devis-autre-input" id="devisAutreGroup" style="display:none;">
+                        <label for="devisAutre"><i class="fa-solid fa-pen"></i> Précisez votre besoin</label>
+                        <input type="text" id="devisAutre" name="autre" placeholder="Décrivez votre besoin...">
+                    </div>
+                    <div class="devis-form-row">
+                        <div class="devis-form-group">
+                            <label for="devisPhone"><i class="fa-solid fa-phone"></i> Téléphone <span class="required">*</span></label>
+                            <input type="tel" id="devisPhone" name="phone" placeholder="+221 7X XXX XX XX" required>
+                        </div>
+                        <div class="devis-form-group">
+                            <label for="devisEmail"><i class="fa-solid fa-envelope"></i> Email <span class="required">*</span></label>
+                            <input type="email" id="devisEmail" name="email" placeholder="exemple@email.com" required>
+                        </div>
+                    </div>
+                    <div class="devis-form-group">
+                        <label for="devisMessage"><i class="fa-solid fa-comment-dots"></i> Décrivez votre besoin <span class="required">*</span></label>
+                        <textarea id="devisMessage" name="message" placeholder="Décrivez en détail votre projet ou besoin..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-devis-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Envoyer la demande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PRODUCT DETAIL MODAL ==================== -->
+    <div class="product-modal-overlay" id="productModalOverlay">
+        <div class="product-modal" id="productModal">
+            <button class="btn-close-modal" id="btnCloseModal" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+            <div class="product-modal-body" id="productModalBody"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 ElectroShop — Tous droits réservés. Paiement sécurisé.</p>
+    </footer>
+
+    <!-- Floating cart button (mobile) -->
+    <button class="floating-cart-btn" id="floatingCartBtn" aria-label="Panier">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count" id="floatingCartCount">0</span>
+    </button>
+
+    <!-- Floating WhatsApp button -->
+    <a href="https://wa.me/221781923146" class="floating-whatsapp-btn" id="floatingWhatsAppBtn" aria-label="Nous contacter sur WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
